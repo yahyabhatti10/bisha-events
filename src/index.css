@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-warm-white text-gray-800 font-garamond;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-great-vibes text-golden;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-golden hover:text-golden/80 transition-colors duration-300 text-sm uppercase tracking-wider;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-golden text-white rounded-sm hover:bg-golden/90 transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl text-golden text-center mb-8;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    @apply border-golden ring-1 ring-golden outline-none;
+  }
+}
+
+:root {
+  --color-golden: #D39D55;
+  --color-warm-white: #FDFBF9;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--color-golden);
+  color: transparent;
+}
