@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import EnchantingEvents from './pages/EnchantingEvents';
+import ServicesView from './pages/ServicesView';
 import CapturedMoments from './pages/CapturedMoments';
 import SavorTheFlavor from './pages/SavorTheFlavor';
 import DreamConsultation from './pages/DreamConsultation';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/enchanting-events" element={<EnchantingEvents />} />
+          <Route path="/enchanting-events/:serviceId" element={<ServicesView />} />
           <Route path="/captured-moments" element={<CapturedMoments />} />
           <Route path="/savor-the-flavor" element={<SavorTheFlavor />} />
           <Route path="/dream-consultation" element={<DreamConsultation />} />
