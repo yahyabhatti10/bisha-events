@@ -1,6 +1,6 @@
 // data/ourStoryData.ts
-import bismaTeam from '../assets/bisma-team.png';
-import harrisTeam from '../assets/harris-team.png';
+import bismaTeam from '../assets/our-story/bisma-team.png';
+import harrisTeam from '../assets/our-story/harris-team.png';
 
 export interface TeamMember {
   name: string;

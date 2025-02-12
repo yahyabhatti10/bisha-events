@@ -1,89 +1,89 @@
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import walima1 from '../assets/walima-1.jpg';
-import walima2 from '../assets/walima-2.jpg';
-import walima3 from '../assets/walima-3.jpg';
-import walima4 from '../assets/walima-4.jpg';
-import walima5 from '../assets/walima-5.jpg';
-import walima6 from '../assets/walima-6.jpg';
-import walima7 from '../assets/walima-7.jpg';
+import walima1 from '../assets/events/walima/walima-1.jpg';
+import walima2 from '../assets/events/walima/walima-2.jpg';
+import walima3 from '../assets/events/walima/walima-3.jpg';
+import walima4 from '../assets/events/walima/walima-4.jpg';
+import walima5 from '../assets/events/walima/walima-5.jpg';
+import walima6 from '../assets/events/walima/walima-6.jpg';
+import walima7 from '../assets/events/walima/walima-7.jpg';
 
-import barat1 from '../assets/barat-1.jpg';
-import barat2 from '../assets/barat-2.jpg';
-import barat3 from '../assets/barat-3.jpg';
-import barat4 from '../assets/barat-4.jpg';
-import barat5 from '../assets/barat-5.jpg';
-import barat6 from '../assets/barat-6.jpg';
-import barat7 from '../assets/barat-7.jpg';
-import barat8 from '../assets/barat-8.jpg';
-import barat9 from '../assets/barat-9.jpg';
+import barat1 from '../assets/events/barat/barat-1.jpg';
+import barat2 from '../assets/events/barat/barat-2.jpg';
+import barat3 from '../assets/events/barat/barat-3.jpg';
+import barat4 from '../assets/events/barat/barat-4.jpg';
+import barat5 from '../assets/events/barat/barat-5.jpg';
+import barat6 from '../assets/events/barat/barat-6.jpg';
+import barat7 from '../assets/events/barat/barat-7.jpg';
+import barat8 from '../assets/events/barat/barat-8.jpg';
+import barat9 from '../assets/events/barat/barat-9.jpg';
 
-import mehandi1 from '../assets/mehandi-1.jpg';
-import mehandi2 from '../assets/mehandi-2.jpg';
-import mehandi3 from '../assets/mehandi-3.jpg';
-import mehandi4 from '../assets/mehandi-4.jpg';
-import mehandi5 from '../assets/mehandi-5.jpg';
-import mehandi6 from '../assets/mehandi-6.jpg';
-import mehandi7 from '../assets/mehandi-7.jpg';
-import mehandi8 from '../assets/mehandi-8.jpg';
-import mehandi9 from '../assets/mehandi-9.jpg';
+import mehandi1 from '../assets/events/mehandi/mehandi-1.jpg';
+import mehandi2 from '../assets/events/mehandi/mehandi-2.jpg';
+import mehandi3 from '../assets/events/mehandi/mehandi-3.jpg';
+import mehandi4 from '../assets/events/mehandi/mehandi-4.jpg';
+import mehandi5 from '../assets/events/mehandi/mehandi-5.jpg';
+import mehandi6 from '../assets/events/mehandi/mehandi-6.jpg';
+import mehandi7 from '../assets/events/mehandi/mehandi-7.jpg';
+import mehandi8 from '../assets/events/mehandi/mehandi-8.jpg';
+import mehandi9 from '../assets/events/mehandi/mehandi-9.jpg';
 
-import nikkah1 from '../assets/nikkah-1.jpg';
-import nikkah2 from '../assets/nikkah-2.jpg';
-import nikkah3 from '../assets/nikkah-3.jpg';
-import nikkah4 from '../assets/nikkah-4.jpg';
-import nikkah5 from '../assets/nikkah-5.jpg';
-import nikkah6 from '../assets/nikkah-6.jpg';
-import nikkah7 from '../assets/nikkah-7.jpg';
-import nikkah8 from '../assets/nikkah-8.jpg';
-import nikkah9 from '../assets/nikkah-9.jpg';
-import nikkah10 from '../assets/nikkah-10.jpg';
-import nikkah11 from '../assets/nikkah-11.jpg';
-import nikkah12 from '../assets/nikkah-12.jpg';
+import nikkah1 from '../assets/events/nikkah/nikkah-1.jpg';
+import nikkah2 from '../assets/events/nikkah/nikkah-2.jpg';
+import nikkah3 from '../assets/events/nikkah/nikkah-3.jpg';
+import nikkah4 from '../assets/events/nikkah/nikkah-4.jpg';
+import nikkah5 from '../assets/events/nikkah/nikkah-5.jpg';
+import nikkah6 from '../assets/events/nikkah/nikkah-6.jpg';
+import nikkah7 from '../assets/events/nikkah/nikkah-7.jpg';
+import nikkah8 from '../assets/events/nikkah/nikkah-8.jpg';
+import nikkah9 from '../assets/events/nikkah/nikkah-9.jpg';
+import nikkah10 from '../assets/events/nikkah/nikkah-10.jpg';
+import nikkah11 from '../assets/events/nikkah/nikkah-11.jpg';
+import nikkah12 from '../assets/events/nikkah/nikkah-12.jpg';
 
-import engagement1 from '../assets/engagement-1.jpg';
-import engagement2 from '../assets/engagement-2.jpg';
-import engagement3 from '../assets/engagement-3.jpg';
-import engagement4 from '../assets/engagement-4.jpg';
-import engagement5 from '../assets/engagement-5.jpg';
-import engagement6 from '../assets/engagement-6.jpg';
-import engagement7 from '../assets/engagement-7.jpg';
-import engagement8 from '../assets/engagement-8.jpg';
-import engagement9 from '../assets/engagement-9.jpg';
-
-
-import qawali1 from '../assets/qawali-1.jpg';
-import qawali2 from '../assets/qawali-2.jpg';
-import qawali3 from '../assets/qawali-3.jpg';
-import qawali4 from '../assets/qawali-4.jpg';
-import qawali5 from '../assets/qawali-5.jpg';
-import qawali6 from '../assets/qawali-6.jpg';
-
-import birthday1 from '../assets/birthday-1.jpg';
-import birthday2 from '../assets/birthday-2.jpg';
-import birthday3 from '../assets/birthday-3.jpg';
-import birthday4 from '../assets/birthday-4.jpg';
-import birthday5 from '../assets/birthday-5.jpg';
-import birthday6 from '../assets/birthday-6.jpg';
+import engagement1 from '../assets/events/engagement/engagement-1.jpg';
+import engagement2 from '../assets/events/engagement/engagement-2.jpg';
+import engagement3 from '../assets/events/engagement/engagement-3.jpg';
+import engagement4 from '../assets/events/engagement/engagement-4.jpg';
+import engagement5 from '../assets/events/engagement/engagement-5.jpg';
+import engagement6 from '../assets/events/engagement/engagement-6.jpg';
+import engagement7 from '../assets/events/engagement/engagement-7.jpg';
+import engagement8 from '../assets/events/engagement/engagement-8.jpg';
+import engagement9 from '../assets/events/engagement/engagement-9.jpg';
 
 
-import anniversary1 from '../assets/anniversary-1.jpg';
-import anniversary2 from '../assets/anniversary-2.jpg';
-import anniversary3 from '../assets/anniversary-3.jpg';
-import anniversary4 from '../assets/anniversary-4.jpg';
-import anniversary5 from '../assets/anniversary-5.jpg';
-import anniversary6 from '../assets/anniversary-6.jpg';
-import anniversary7 from '../assets/anniversary-7.jpg';
-import anniversary8 from '../assets/anniversary-8.jpg';
-import anniversary9 from '../assets/anniversary-9.jpg';
+import qawali1 from '../assets/events/qawali/qawali-1.jpg';
+import qawali2 from '../assets/events/qawali/qawali-2.jpg';
+import qawali3 from '../assets/events/qawali/qawali-3.jpg';
+import qawali4 from '../assets/events/qawali/qawali-4.jpg';
+import qawali5 from '../assets/events/qawali/qawali-5.jpg';
+import qawali6 from '../assets/events/qawali/qawali-6.jpg';
 
-import valentine1 from '../assets/valentine-1.jpg';
-import valentine2 from '../assets/valentine-2.jpg';
-import valentine3 from '../assets/valentine-3.jpg';
-import valentine4 from '../assets/valentine-4.jpg';
-import valentine5 from '../assets/valentine-5.jpg';
-import valentine6 from '../assets/valentine-6.jpg';
+import birthday1 from '../assets/events/birthday/birthday-1.jpg';
+import birthday2 from '../assets/events/birthday/birthday-2.jpg';
+import birthday3 from '../assets/events/birthday/birthday-3.jpg';
+import birthday4 from '../assets/events/birthday/birthday-4.jpg';
+import birthday5 from '../assets/events/birthday/birthday-5.jpg';
+import birthday6 from '../assets/events/birthday/birthday-6.jpg';
+
+
+import anniversary1 from '../assets/events/anniversary/anniversary-1.jpg';
+import anniversary2 from '../assets/events/anniversary/anniversary-2.jpg';
+import anniversary3 from '../assets/events/anniversary/anniversary-3.jpg';
+import anniversary4 from '../assets/events/anniversary/anniversary-4.jpg';
+import anniversary5 from '../assets/events/anniversary/anniversary-5.jpg';
+import anniversary6 from '../assets/events/anniversary/anniversary-6.jpg';
+import anniversary7 from '../assets/events/anniversary/anniversary-7.jpg';
+import anniversary8 from '../assets/events/anniversary/anniversary-8.jpg';
+import anniversary9 from '../assets/events/anniversary/anniversary-9.jpg';
+
+import valentine1 from '../assets/events/valentine/valentine-1.jpg';
+import valentine2 from '../assets/events/valentine/valentine-2.jpg';
+import valentine3 from '../assets/events/valentine/valentine-3.jpg';
+import valentine4 from '../assets/events/valentine/valentine-4.jpg';
+import valentine5 from '../assets/events/valentine/valentine-5.jpg';
+import valentine6 from '../assets/events/valentine/valentine-6.jpg';
 
 
 const ServicesView = () => {

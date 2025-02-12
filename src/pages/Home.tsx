@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import heroBackground from '../assets/hero-background.png';
+import heroBackground from '../assets/home/hero-background.png';
 
 const Home = () => {
   const navigate = useNavigate();

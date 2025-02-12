@@ -5,6 +5,7 @@ import OurStory from './pages/OurStory';
 import EnchantingEvents from './pages/EnchantingEvents';
 import ServicesView from './pages/ServicesView';
 import CapturedMoments from './pages/CapturedMoments';
+import MomentsView from './pages/MomentsView'
 import SavorTheFlavor from './pages/SavorTheFlavor';
 import DreamConsultation from './pages/DreamConsultation';
 import LoveStories from './pages/LoveStories';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/enchanting-events" element={<EnchantingEvents />} />
           <Route path="/enchanting-events/:serviceId" element={<ServicesView />} />
           <Route path="/captured-moments" element={<CapturedMoments />} />
+          <Route path="/captured-moments/:galleryId" element={<MomentsView />} />
           <Route path="/savor-the-flavor" element={<SavorTheFlavor />} />
           <Route path="/dream-consultation" element={<DreamConsultation />} />
           <Route path="/love-stories" element={<LoveStories />} />

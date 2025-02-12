@@ -1,14 +1,14 @@
 // servicesData.ts which are being used in EnchantingEvents.tsx
-import walimaCover from '../assets/walima-cover.png';
-import baratCover from '../assets/barat-cover.png';
-import mehandiCover from '../assets/mehandi-cover.png';
-import nikkahCover from '../assets/nikkah-cover.png';
-import engagementCover from '../assets/engagement-cover.png';
-import anniversaryCover from '../assets/anniversary-cover.png';
-import valentineCover from '../assets/valentine-cover.png';
-import birthdayCover from '../assets/birthday-cover.png';
-import bridalShowerCover from '../assets/bridalShower-cover.png';
-import qawaliCover from '../assets/qawali-cover.png';
+import walimaCover from '../assets/events/walima/walima-cover.png';
+import baratCover from '../assets/events/barat/barat-cover.png';
+import mehandiCover from '../assets/events/mehandi/mehandi-cover.png';
+import nikkahCover from '../assets/events/nikkah/nikkah-cover.png';
+import engagementCover from '../assets/events/engagement/engagement-cover.png';
+import anniversaryCover from '../assets/events/anniversary/anniversary-cover.png';
+import valentineCover from '../assets/events/valentine/valentine-cover.png';
+import birthdayCover from '../assets/events/birthday/birthday-cover.png';
+import bridalShowerCover from '../assets/events/bridalShower/bridalShower-cover.png';
+import qawaliCover from '../assets/events/qawali/qawali-cover.png';
 
 export interface Service {
   id: string;
