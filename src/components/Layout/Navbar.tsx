@@ -7,14 +7,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Disable background scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = '';
     };
@@ -29,7 +27,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handler to scroll to the top and close mobile menu if open
+  const handleScrollToTop = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault(); // Prevent default link behavior
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleNavLinkClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (isOpen) {
@@ -55,7 +57,7 @@ const Navbar = () => {
     >
       <div className="flex items-center h-20 px-4 justify-between md:justify-start">
         {/* Logo at top left */}
-        <Link to="/" onClick={handleNavLinkClick} className="flex items-center">
+        <a href="/" onClick={handleScrollToTop} className="flex items-center cursor-pointer">
           <div className="flex items-center space-x-2">
             <span className="font-garamond text-3xl md:text-4xl font-semibold text-golden">
               BISHA
@@ -64,9 +66,9 @@ const Navbar = () => {
               events
             </span>
           </div>
-        </Link>
+        </a>
 
-        {/* Desktop Navigation: Centered navlinks */}
+        {/* Desktop Navigation */}
         <div className="flex-grow hidden md:flex justify-center items-center space-x-8">
           {navLinks.map((link) => (
             <Link
@@ -82,7 +84,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Navigation Button: at extreme right, vertically centered */}
+        {/* Mobile Navigation Button */}
         <div className="flex-none md:hidden flex items-center h-20">
           <button
             onClick={() => setIsOpen(!isOpen)}

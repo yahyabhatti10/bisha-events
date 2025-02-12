@@ -19,19 +19,31 @@ const Footer = () => {
             <h4 className="text-xl mb-4">Contact Us</h4>
             <div className="space-y-2">
               <p className="flex items-center justify-center gap-2">
-                <Phone size={16} className="text-golden" />
-                <span>+92 321 8421990</span>
+                <a href="https://wa.me/923218421990" className="flex items-center gap-2">
+                  <Phone size={16} className="text-golden" />
+                  <span>+92 321 8421990</span>
+                </a>
               </p>
               <p className="flex items-center justify-center gap-2">
-                <Mail size={16} className="text-golden" />
-                <span>contact@bishaevents.com</span>
+                <a href="mailto:contact@bishaevents.com" className="flex items-center gap-2">
+                  <Mail size={16} className="text-golden" />
+                  <span>contact@bishaevents.com</span>
+                </a>
               </p>
               <p className="flex items-center justify-center gap-2">
-                <MapPin size={16} className="text-golden" />
-                <span>Phase 6, Lahore</span>
+                <a
+                  href="https://www.google.com/maps/place/Phase+6,+Lahore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <MapPin size={16} className="text-golden" />
+                  <span>Phase 6, Lahore</span>
+                </a>
               </p>
             </div>
           </div>
+
 
           <div className="text-center md:text-right">
             <h4 className="text-xl mb-4">Follow Us</h4>

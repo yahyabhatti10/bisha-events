@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import heroBackground from '../assets/hero-background.png';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    window.scrollTo(0, 0); // Scroll to top
+    navigate('/dream-consultation'); // Navigate after scrolling
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -32,19 +39,18 @@ const Home = () => {
           >
             Crafting Timeless Memories with Elegance & Luxury
           </motion.p>
-          <Link to="/dream-consultation">
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, x: [0, -10, 10, 0] }}
-              transition={{
-                opacity: { duration: 1, delay: 0.6 },
-                x: { repeat: Infinity, repeatType: 'loop', duration: 1.5, ease: 'easeInOut' },
-              }}
-              className="btn-primary"
-            >
-              Plan Your Dream Event
-            </motion.button>
-          </Link>
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, x: [0, -10, 10, 0] }}
+            transition={{
+              opacity: { duration: 1, delay: 0.6 },
+              x: { repeat: Infinity, repeatType: 'loop', duration: 1.5, ease: 'easeInOut' },
+            }}
+            className="btn-primary"
+            onClick={handleButtonClick}
+          >
+            Plan Your Dream Event
+          </motion.button>
         </div>
       </section>
     </div>

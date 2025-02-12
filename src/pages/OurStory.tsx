@@ -1,46 +1,11 @@
+// pages/OurStory.tsx
 import { motion } from 'framer-motion';
 import ourStory from '../assets/our-story.png';
-import bismaTeam from '../assets/bisma-team.png';
-import harrisTeam from '../assets/harris-team.png';
+import { teamMembers, values } from '../data/ourStoryData';
+import TeamMemberCard from '../components/Our-Story/TeamMemberCard';
+import ValueCard from '../components/Our-Story/ValueCard';
 
 const OurStory = () => {
-  const teamMembers = [
-    {
-      name: "Harris Saeed",
-      role: "Catering & Food",
-      description:
-        "Owner of Red Chilli Restaurant, bringing years of culinary excellence.",
-      image: harrisTeam,
-    },
-    {
-      name: "Bisma Harris",
-      role: "Décor Designer & Event Planner",
-      description:
-        "Creative visionary with a passion for transforming spaces into magical settings.",
-      image: bismaTeam,
-    },
-  ];
-
-  const values = [
-    {
-      title: "Excellence",
-      description: "We strive for perfection in every detail of your event.",
-    },
-    {
-      title: "Creativity",
-      description:
-        "Each event is uniquely designed to reflect your personal style.",
-    },
-    {
-      title: "Reliability",
-      description: "We deliver on our promises, ensuring peace of mind.",
-    },
-    {
-      title: "Passion",
-      description: "We pour our heart into making your dreams come true.",
-    },
-  ];
-
   return (
     <div className="pt-20">
       <motion.div
@@ -90,26 +55,7 @@ const OurStory = () => {
         <h2 className="section-title">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden p-6 text-center"
-            >
-              <div className="flex justify-center mb-4">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-40 w-40 object-cover rounded-full"
-                />
-              </div>
-              <h3 className="text-2xl mb-2 font-garamond font-semibold text-golden">
-                {member.name}
-              </h3>
-              <p className="text-golden mb-4">{member.role}</p>
-              <p className="text-gray-600">{member.description}</p>
-            </motion.div>
+            <TeamMemberCard key={index} member={member} />
           ))}
         </div>
 
@@ -117,18 +63,12 @@ const OurStory = () => {
         <h2 className="section-title">Our Values</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <motion.div
+            <ValueCard
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white p-6 rounded-lg shadow-lg text-center"
-            >
-              <h3 className="text-2xl mb-4 font-garamond font-semibold text-golden">
-                {value.title}
-              </h3>
-              <p className="text-gray-600">{value.description}</p>
-            </motion.div>
+              title={value.title}
+              description={value.description}
+              delay={index * 0.2}
+            />
           ))}
         </div>
       </motion.div>
