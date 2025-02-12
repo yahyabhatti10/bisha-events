@@ -27,11 +27,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleScrollToTop = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    event.preventDefault(); // Prevent default link behavior
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleNavLinkClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (isOpen) {
@@ -57,7 +52,7 @@ const Navbar = () => {
     >
       <div className="flex items-center h-20 px-4 justify-between md:justify-start">
         {/* Logo at top left */}
-        <a href="/" onClick={handleScrollToTop} className="flex items-center cursor-pointer">
+        <a href="/" onClick={handleNavLinkClick} className="flex items-center cursor-pointer">
           <div className="flex items-center space-x-2">
             <span className="font-garamond text-3xl md:text-4xl font-semibold text-golden">
               BISHA
