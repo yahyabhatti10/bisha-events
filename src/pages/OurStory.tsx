@@ -1,41 +1,11 @@
-import React from 'react';
+// pages/OurStory.tsx
 import { motion } from 'framer-motion';
+import ourStory from '../assets/our-story/our-story.png';
+import { teamMembers, values } from '../data/ourStoryData';
+import TeamMemberCard from '../components/Our-Story/TeamMemberCard';
+import ValueCard from '../components/Our-Story/ValueCard';
 
 const OurStory = () => {
-  const teamMembers = [
-    {
-      name: "Harris Saeed",
-      role: "Catering & Food",
-      description: "Owner of Red Chilli Restaurant, bringing years of culinary excellence.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-      name: "Bisma Harris",
-      role: "Décor Designer & Event Planner",
-      description: "Creative visionary with a passion for transforming spaces into magical settings.",
-      image: "https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-    }
-  ];
-
-  const values = [
-    {
-      title: "Excellence",
-      description: "We strive for perfection in every detail of your event."
-    },
-    {
-      title: "Creativity",
-      description: "Each event is uniquely designed to reflect your personal style."
-    },
-    {
-      title: "Reliability",
-      description: "We deliver on our promises, ensuring peace of mind."
-    },
-    {
-      title: "Passion",
-      description: "We pour our heart into making your dreams come true."
-    }
-  ];
-
   return (
     <div className="pt-20">
       <motion.div
@@ -49,18 +19,32 @@ const OurStory = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
           <div>
             <p className="text-lg mb-6">
-              Founded with a vision to transform events into unforgettable experiences, 
-              Bisha Events has become Lahore's premier luxury event planning service.
+              At Bisha Events, we create unforgettable experiences where every
+              detail reflects elegance and luxury. Founded by Bisma Harris, a
+              visionary décor designer, and Harris Saeed, owner of Red Chilli
+              Restaurant, we blend stunning aesthetics with gourmet excellence
+              to craft breathtaking celebrations.
             </p>
             <p className="text-lg mb-6">
-              Our journey began when Bisma Harris, a passionate décor designer, 
-              joined forces with Harris Saeed, the renowned owner of Red Chilli Restaurant, 
-              combining their expertise in event aesthetics and culinary excellence.
+              From intimate weddings to grand events, we transform venues with
+              elegant décor, ambient lighting, and personalized themes. Our
+              exceptional catering ensures every dish complements the occasion.
+              At Bisha Events, we turn your dreams into timeless memories with
+              perfection in every detail.
+            </p>
+            <p className="text-lg mb-6">
+              With a passion for storytelling through design and flavor, we
+              curate events that leave a lasting impression. Our team works
+              closely with clients to understand their vision, ensuring every
+              celebration is uniquely tailored. Whether it's a fairytale wedding,
+              a lavish corporate gala, or a charming private gathering, Bisha
+              Events brings creativity, sophistication, and seamless execution to
+              every occasion.
             </p>
           </div>
           <div className="relative h-[400px]">
             <img
-              src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+              src={ourStory}
               alt="Event Planning"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
@@ -68,29 +52,10 @@ const OurStory = () => {
         </div>
 
         {/* Meet Our Team Section */}
-        <h2 className="section-title">Meet Our Team</h2>
+        <h2 className="section-title">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <div className="h-64">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl mb-2">{member.name}</h3>
-                <p className="text-golden mb-4">{member.role}</p>
-                <p className="text-gray-600">{member.description}</p>
-              </div>
-            </motion.div>
+            <TeamMemberCard key={index} member={member} />
           ))}
         </div>
 
@@ -98,16 +63,12 @@ const OurStory = () => {
         <h2 className="section-title">Our Values</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <motion.div
+            <ValueCard
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white p-6 rounded-lg shadow-lg text-center"
-            >
-              <h3 className="text-2xl mb-4">{value.title}</h3>
-              <p className="text-gray-600">{value.description}</p>
-            </motion.div>
+              title={value.title}
+              description={value.description}
+              delay={index * 0.2}
+            />
           ))}
         </div>
       </motion.div>
