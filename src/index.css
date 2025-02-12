@@ -1,3 +1,5 @@
+/* stylelint-disable at-rule-no-unknown, at-rule-no-vendor-prefix, declaration-no-important */
+
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap');
 
 @tailwind base;
@@ -20,7 +22,12 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-golden text-white rounded-sm hover:bg-golden/90 transition-all duration-300 transform hover:-translate-y-0.5;
+    @apply px-6 py-3 bg-golden text-white rounded-sm transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+
+  /* New hover rule for dark golden background */
+  .btn-primary:hover {
+    background-color: var(--color-dark-golden);
   }
 
   .section-title {
@@ -34,6 +41,7 @@
 
 :root {
   --color-golden: #D39D55;
+  --color-dark-golden: #9b6c39;
   --color-warm-white: #FDFBF9;
 }
 
@@ -41,3 +49,5 @@
   -webkit-text-stroke: 1px var(--color-golden);
   color: transparent;
 }
+
+/* stylelint-enable at-rule-no-unknown, at-rule-no-vendor-prefix, declaration-no-important */
