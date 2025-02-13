@@ -86,8 +86,8 @@ const CapturedMoments = () => {
                   />
                 </div>
                 {/* Static dark overlay and title */}
-                <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-                  <h3 className="text-golden font-garamond text-2xl font-great-vibes">
+                <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center rounded-lg">
+                  <h3 className="text-golden font-garamond text-3xl font-great-vibes">
                     {gallery.title}
                   </h3>
                 </div>
