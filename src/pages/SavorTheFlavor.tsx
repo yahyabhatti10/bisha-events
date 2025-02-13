@@ -1,24 +1,48 @@
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
+import traditionalPakistaniCover from '../assets/savor-the-flavor/traditional-pakistani.jpg'
+import chineseCover from '../assets/savor-the-flavor/chinese-fusion.jpg'
+import continentalCover from '../assets/savor-the-flavor/continental.jpg'
+import bbqCover from '../assets/savor-the-flavor/bbq.jpg'
+import streetFoodCover from '../assets/savor-the-flavor/streed-food.jpg'
+import dessertsCover from '../assets/savor-the-flavor/desserts.jpg'
+
+
 
 const SavorTheFlavor = () => {
   const cuisines = [
     {
       name: "Traditional Pakistani",
-      image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      description: "Authentic Pakistani flavors with a modern twist"
+      image: traditionalPakistaniCover,
+      description: "Authentic Pakistani flavors with a modern twist",
     },
     {
       name: "Chinese Fusion",
-      image: "https://images.unsplash.com/photo-1512003867696-6d5ce6835040?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      description: "A perfect blend of Oriental and local tastes"
+      image: chineseCover,
+      description: "A perfect blend of Oriental and local tastes",
     },
     {
       name: "Continental",
-      image: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      description: "International cuisine for the refined palate"
-    }
+      image: continentalCover,
+      description: "International cuisine for the refined palate",
+    },
+    {
+      name: "BBQ",
+      image: bbqCover,
+      description: "Grilled to perfection with bold, smoky flavors",
+    },
+    {
+      name: "Desi Street Food",
+      image: streetFoodCover,
+      description:"Savor the flavors of popular street food including Halwa Poori and Gol Gappy",
+    },
+    {
+      name: "Desserts",
+      image: dessertsCover,
+      description:"Decadent sweets to round off your meal with a touch of indulgence",
+    },
   ];
+  
 
   return (
     <div className="pt-20">
@@ -46,7 +70,7 @@ const SavorTheFlavor = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl mb-2">{cuisine.name}</h3>
+                <h3 className="text-2xl mb-2 font-garamond font-semibold text-golden">{cuisine.name}</h3>
                 <p className="text-gray-600">{cuisine.description}</p>
               </div>
             </motion.div>
