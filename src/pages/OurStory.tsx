@@ -1,6 +1,6 @@
 // pages/OurStory.tsx
 import { motion } from 'framer-motion';
-import ourStory from '../assets/our-story/our-story.png';
+import ourStory from '../assets/our-story/our-story.jpg';
 import { teamMembers, values } from '../data/ourStoryData';
 import TeamMemberCard from '../components/Our-Story/TeamMemberCard';
 import ValueCard from '../components/Our-Story/ValueCard';
