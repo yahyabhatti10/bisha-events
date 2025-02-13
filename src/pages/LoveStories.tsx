@@ -48,7 +48,7 @@ const LoveStories = () => {
                 alt={testimonial.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-70 group-hover:bg-opacity-70 transition-opacity duration-300">
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center">
                   <h3 className="text-2xl font-great-vibes mb-2">{testimonial.name}</h3>
                   <p className="text-sm mb-4">{testimonial.event}</p>
