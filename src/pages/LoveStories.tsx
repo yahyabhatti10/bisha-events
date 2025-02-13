@@ -1,25 +1,27 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import MeerabAndUmer from '../assets/events/mehandi/mehandi-1.jpg';
+import MahnoorAndHarris from '../assets/events/walima/walima-2.jpg';
+import RamshaAndUmer from '../assets/love-stories/ramshaAndUmer.jpg';
 
 const LoveStories = () => {
   const testimonials = [
     {
-      name: "Sarah & Ahmed",
-      event: "Wedding Reception",
+      name: "Ramsha & Umer",
+      event: "Mehandi",
       quote: "Bisha Events turned our dream wedding into reality. Every detail was perfect!",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: RamshaAndUmer,
     },
     {
-      name: "Fatima & Hassan",
-      event: "Engagement Ceremony",
-      quote: "The attention to detail and creativity exceeded our expectations!",
-      image: "https://images.unsplash.com/photo-1519657337289-077653f724ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      name: "Mahnoor & Harris",
+      event: "Wedding Reception",
+      quote: "Thank you Bisha Events for brining my fairytale to reality! The decor and the food was waaaayyyy more beautiful and flawless than we could’ve imagined it to be! You understood exactly what I was looking for 😍 Definitely one of my most favourite events!! ❤️",
+      image: MahnoorAndHarris,
     },
     {
-      name: "Zara & Ali",
-      event: "Destination Wedding",
-      quote: "They made our destination wedding feel like a fairy tale come true.",
-      image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      name: "Meerab & Umer",
+      event: "Mayon",
+      quote: "Our Mayon event was like stepping into a fairy tale. Every detail was taken care of, making the day feel magical from start to finish. We felt special and truly enjoyed every moment. Their attention to even the smallest detail made our day unforgettable.",
+      image: MeerabAndUmer,
     }
   ];
 

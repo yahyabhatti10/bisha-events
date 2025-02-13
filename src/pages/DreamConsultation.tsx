@@ -125,7 +125,7 @@ const DreamConsultation = () => {
         )
         .then(
           (result) => {
-            // console.log('SUCCESS!', result.text);
+            console.log('SUCCESS!', result.text);
             // Show the success popup
             setShowSuccess(true);
             // Reset the form fields using the form ref
