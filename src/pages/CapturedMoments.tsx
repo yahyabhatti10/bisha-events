@@ -11,7 +11,6 @@ import fatimaMehandiCover from '../assets/moments/fatimaMehandi/fatimaMehandi-co
 import mandyCover from '../assets/moments/mandy/mandy-cover.jpg';
 
 const CapturedMoments = () => {
-  // Added an id field to each gallery for navigation.
   const galleries = [
     {
       id: "iz-baatPakki",
@@ -86,8 +85,11 @@ const CapturedMoments = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-great-vibes">{gallery.title}</h3>
+                {/* Static dark overlay and title */}
+                <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                  <h3 className="text-golden font-garamond text-2xl font-great-vibes">
+                    {gallery.title}
+                  </h3>
                 </div>
               </motion.div>
             </Link>
