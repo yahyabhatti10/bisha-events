@@ -130,7 +130,7 @@ const MomentsView = () => {
             ],
         },
         "rz-engagement": {
-            title: "R&Z Engagement",
+            title: "R&Z  Engagement",
             description: "An intimate and stylish engagement event capturing modern romance.",
             images: [
                 rzEngagementCover,
