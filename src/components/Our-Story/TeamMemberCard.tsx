@@ -20,6 +20,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
           src={member.image}
           alt={member.name}
           className="h-40 w-40 object-cover rounded-full"
+          loading="lazy"
         />
       </div>
       <h3 className="text-2xl mb-2 font-garamond font-semibold text-golden">

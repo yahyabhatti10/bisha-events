@@ -47,6 +47,7 @@ const OurStory = () => {
               src={ourStory}
               alt="Event Planning"
               className="w-full h-full object-cover rounded-lg shadow-lg"
+              loading="lazy"
             />
           </div>
         </div>
