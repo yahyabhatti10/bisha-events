@@ -33,6 +33,19 @@
   .section-title {
     @apply text-4xl md:text-5xl text-golden text-center mb-8;
   }
+  .custom-checkbox:checked {
+    accent-color: var(--color-golden);
+  }
+
+
+  .custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 50%;
+    background: var(--color-golden);
+  }
+  
 
   input:focus, select:focus, textarea:focus {
     @apply border-golden ring-1 ring-golden outline-none;
