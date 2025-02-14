@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { CheckCircleIcon} from 'lucide-react';
+import { CheckCircleIcon } from 'lucide-react';
+import axios from 'axios';
 
 const eventCategories = [
   "Walima/Reception",
@@ -38,23 +39,13 @@ const DreamConsultation = () => {
     const date = formData.get("event_date") as string;
     const phone = formData.get("contact_number") as string;
     const eventType = formData.get("event_type") as string;
-    const eventCategory = formData.get("event_category") as string;
     const venue = formData.get("venue") as string;
-    const guestCount = formData.get("guest_count") as string;
+    const guestCountValue = formData.get("guest_count") as string;
     const time = formData.get("event_time") as string;
-    // console.log(name);
-    // console.log(email);    
-    // console.log(phone);
-    // console.log(eventType);
-    // console.log(eventCategory);
-    // console.log(venue);
-    // console.log(guestCount);
-    // console.log(date);    
-    // console.log(time);    
 
     const today = new Date();
     const selectedDate = new Date(date);
-    
+
     if (!name) {
       setErrorMessage("Name is required.");
       return false;
@@ -71,7 +62,7 @@ const DreamConsultation = () => {
       setErrorMessage("Time is required.");
       return false;
     }
-    if (!eventCategory) {
+    if (categories.length === 0) {
       setErrorMessage("Event Category is required.");
       return false;
     }
@@ -79,7 +70,7 @@ const DreamConsultation = () => {
       setErrorMessage("Event Type is required.");
       return false;
     }
-    if (!guestCount) {
+    if (!guestCountValue) {
       setErrorMessage("Guest Count is required.");
       return false;
     }
@@ -95,21 +86,44 @@ const DreamConsultation = () => {
       setErrorMessage("Event date must be in the future.");
       return false;
     }
-    
     if (!/^03\d{9}$/.test(phone)) {
       setErrorMessage("Phone number must be 11 digits and start with '03'.");
       return false;
     }
-
-    // if (!name || !date || !phone || !venue || !eventType || !eventCategory || !guestCount || !email || !time) {
-    //   setErrorMessage("All fields with (*) must be filled with required format.");
-    //   return false;
-    // }
     setErrorMessage("");
     return true;
   };
-  
-  // Handler for sending email via EmailJS
+
+  // Function to send WhatsApp message via FastAPI backend
+  const sendWhatsAppMessage = async () => {
+    if (!form.current) return;
+
+    const formData = new FormData(form.current);
+    const params = new URLSearchParams();
+    params.append('user_name', formData.get("user_name") as string);
+    params.append('user_email', formData.get("user_email") as string);
+    params.append('contact_number', formData.get("contact_number") as string);
+    // Use the state value for categories, as multiple checkboxes may be selected
+    params.append('event_category', categories.join(", "));
+    params.append('other_category', otherCategory);
+    params.append('event_type', formData.get("event_type") as string);
+    params.append('guest_count', guestCount.toString());
+    params.append('venue', formData.get("venue") as string);
+    params.append('event_date', formData.get("event_date") as string);
+    params.append('event_time', formData.get("event_time") as string);
+    params.append('message', formData.get("message") as string);
+
+    try {
+      await axios.post("https://bisha-backend.onrender.com/send_whatsapp", params, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+      console.log("WhatsApp message sent successfully!");
+    } catch (error) {
+      console.error("Failed to send WhatsApp message:", error);
+    }
+  };
+
+  // Handler for sending email via EmailJS and triggering WhatsApp message
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -125,7 +139,10 @@ const DreamConsultation = () => {
         )
         .then(
           (result) => {
-            console.log('SUCCESS!', result.text);
+            console.log('EmailJS SUCCESS!', result.text);
+            // Send WhatsApp message after email is sent
+            sendWhatsAppMessage();
+
             // Show the success popup
             setShowSuccess(true);
             // Reset the form fields using the form ref
@@ -138,7 +155,7 @@ const DreamConsultation = () => {
             setTimeout(() => setShowSuccess(false), 3000);
           },
           (error) => {
-            console.error('FAILED...', error.text);
+            console.error('EmailJS FAILED...', error.text);
           }
         );
     }
@@ -178,26 +195,21 @@ const DreamConsultation = () => {
         className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
         <h1 className="section-title">Dream Consultation</h1>
-        {/* Attach the form ref and onSubmit handler */}
         <form ref={form} onSubmit={sendEmail} className="bg-white shadow-lg rounded-lg p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Name *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
               <input
                 type="text"
                 name="user_name"
-                placeholder='e.g. Harris Saeed'
+                placeholder="e.g. Harris Saeed"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
               />
             </div>
             {/* Event Date */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Event Date *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Event Date *</label>
               <input
                 type="date"
                 name="event_date"
@@ -206,9 +218,7 @@ const DreamConsultation = () => {
             </div>
             {/* Time */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Time *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Time *</label>
               <select
                 name="event_time"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
@@ -220,17 +230,13 @@ const DreamConsultation = () => {
                   const hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
                   return `${hour12}:${minute} ${ampm}`;
                 }).map((time) => (
-                  <option key={time} value={time}>
-                    {time}
-                  </option>
+                  <option key={time} value={time}>{time}</option>
                 ))}
               </select>
             </div>
             {/* Event Type */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Event Type *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
               <select
                 name="event_type"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
@@ -243,9 +249,7 @@ const DreamConsultation = () => {
             </div>
             {/* Event Category (Checkboxes) */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Event Category *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Event Category *</label>
               <div className="grid grid-cols-2 gap-2">
                 {eventCategories.map((option) => (
                   <div key={option} className="flex items-center">
@@ -257,9 +261,7 @@ const DreamConsultation = () => {
                       className="custom-checkbox h-4 w-4 text-golden border-gray-300 rounded"
                       name="event_category"
                     />
-                    <label htmlFor={option} className="ml-2 text-sm text-gray-700">
-                      {option}
-                    </label>
+                    <label htmlFor={option} className="ml-2 text-sm text-gray-700">{option}</label>
                   </div>
                 ))}
               </div>
@@ -278,21 +280,17 @@ const DreamConsultation = () => {
             </div>
             {/* Venue */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Venue *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Venue *</label>
               <input
                 type="text"
                 name="venue"
-                placeholder='Street, Town, Area, City.'
+                placeholder="Street, Town, Area, City."
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
               />
             </div>
             {/* Number of Guests */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Number of Guests *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Number of Guests *</label>
               <input
                 type="range"
                 min="0"
@@ -320,47 +318,38 @@ const DreamConsultation = () => {
             </div>
             {/* Contact Number */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Contact Number *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Contact Number *</label>
               <input
                 type="tel"
                 name="contact_number"
-                placeholder='03xxxxxxxxx'
+                placeholder="03xxxxxxxxx"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
               />
             </div>
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
               <input
                 type="email"
                 name="user_email"
-                placeholder='harris@example.com'
+                placeholder="harris@example.com"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
               />
             </div>
             {/* Tell us more */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tell Us More About Your Event
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Tell Us More About Your Event</label>
               <textarea
                 name="message"
                 rows={4}
-                placeholder='Please write your message here'
+                placeholder="Please write your message here"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-golden focus:border-golden"
               ></textarea>
             </div>
           </div>
-          {/* Error Message */}
           {errorMessage && <p className="mt-4 text-red-500 text-sm ">{errorMessage}</p>}
           <div className="mt-6">
-            <button type="submit" className="w-full btn-primary">
-              Submit
-            </button>
+            <button type="submit" className="w-full btn-primary">Submit</button>
           </div>
         </form>
       </motion.div>
