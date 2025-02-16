@@ -153,6 +153,7 @@ const DreamConsultation = () => {
             setOtherCategory("");
             // Hide success popup after 3 seconds
             setTimeout(() => setShowSuccess(false), 3000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           },
           (error) => {
             console.error('EmailJS FAILED...', error.text);
